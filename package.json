@@ -1,0 +1,23 @@
+{
+  "name": "use-facebook",
+  "version": "1.0.0",
+  "description": "Custom React hook to load Facebook web SDK",
+  "main": "index.js",
+  "module": "index.js",
+  "keywords": [
+    "facebook",
+    "sdk",
+    "javascript"
+  ],
+  "author": {
+    "name": "Jabran Rafique",
+    "email": "hello@jabran.me"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^16.14.0"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0"
+  }
+}
