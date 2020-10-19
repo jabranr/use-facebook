@@ -24,15 +24,14 @@ export default function MyFacebookLoginPage () {
    * options is an object (also detailed below)
    */
   const { isFacebookSDKReady } = useFaebook(options);
- 
-  const connectWithFacebook = (ev) => {
-    // Show FB login dialog
-    FB.login();
-  };
+
   
-  // Enable/disable the button based on SDK ready state
+  /** 
+   * Enable/disable the button based on SDK ready state
+   * Show FB login dialog on click once enabled
+   */
   return (
-   <button disabled={!isFacebookSDKReady} onClick={connectWithFacebook}>Connect with Facebook</button>
+   <button disabled={!isFacebookSDKReady} onClick={() => FB.login()}>Connect with Facebook</button>
   );
 }
 ```
