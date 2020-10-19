@@ -13,17 +13,22 @@ npm install use-facebook
 
 ## Usage
 
+Here is an example demostrating a button that triggers Facebook login dialog. Some of the code is truncated for brevity.
+
 ```js
 import React from 'react';
 import useFacebook from 'use-facebook';
 
 export default function MyFacebookLoginPage () {
+  /**
+   * options is an object (also detailed below)
+   */
+   const options = { appId: '123456789' };
 
   /**
    * Returns the state of SDK (true = loaded and ready to use)
-   * options is an object (also detailed below)
    */
-  const { isFacebookSDKReady } = useFaebook(options);
+  const { isFacebookSDKReady } = useFacebook(options);
 
   
   /** 
