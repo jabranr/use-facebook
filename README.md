@@ -14,18 +14,37 @@ npm install use-facebook
 ## Usage
 
 ```js
+import React from 'react';
 import useFacebook from 'use-facebook';
 
 export default function MyFacebookLoginPage () {
+
+  /**
+   * Returns the state of SDK (true = loaded and ready to use)
+   * options is an object (also detailed below)
+   */
   const { isFacebookSDKReady } = useFaebook(options);
+ 
+  const connectWithFacebook = (ev) => {
+    // Show FB login dialog
+    FB.login();
+  };
+  
+  // Enable/disable the button based on SDK ready state
+  return (
+   <button disabled={!isFacebookSDKReady} onClick={connectWithFacebook}>Connect with Facebook</button>
+  );
 }
 ```
+
+> Read [Facebook SDK docs](https://developers.facebook.com/docs/graph-api/using-graph-api/using-with-sdks#javascript-sdk) for `FB` API usage.
+
 
 ### `options`
 
 ```js
 options = {
-  appId: 'abc-xyz',
+  appId: 'abcxyz',
   version: "v8.0",
   autoLogAppEvents: true,
   xfbml: true,
@@ -34,7 +53,7 @@ options = {
 }
 ```
 
-> `appId` is required
+> `appId` is required and everything else is optional.
 
 
 ## License
