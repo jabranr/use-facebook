@@ -1,6 +1,9 @@
 # use-facebook
 
-Custom React hook to load Facebook web SDK
+Custom React hook for Facebook JavaScript SDK
+
+<img src="https://user-images.githubusercontent.com/2131246/96389389-3d43db80-11a7-11eb-9aed-5f6ea596340b.png" alt="use facebook" width="512px" lazy />
+
 
 ## Installation
 
