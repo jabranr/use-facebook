@@ -1,6 +1,6 @@
 {
   "name": "use-facebook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom React hook to load Facebook web SDK",
   "main": "index.js",
   "module": "index.js",
