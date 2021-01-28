@@ -4,6 +4,14 @@
   "description": "Custom React hook to load Facebook web SDK",
   "main": "index.js",
   "module": "index.js",
+  "bugs": {
+    "url": "https://github.com/jabranr/use-facebook/issues"
+  },
+  "homepage": "https://github.com/jabranr/use-facebook#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jabranr/use-facebook.git"
+  },
   "keywords": [
     "facebook",
     "sdk",
@@ -14,10 +22,14 @@
     "email": "hello@jabran.me"
   },
   "license": "MIT",
+  "prettier": "@jabranr-lab/prettier",
   "devDependencies": {
-    "react": "^16.14.0"
+    "@jabranr-lab/prettier": "^1.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "^16.14.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }

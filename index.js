@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useFacebook = function ({
   appId,
-  version = "v8.0",
+  version = 'v8.0',
   autoLogAppEvents = true,
   xfbml = true,
   debug = false,
-  lang = "en_GB",
+  lang = 'en_GB'
 }) {
   const [isFacebookSDKReady, setFacebookSDKReady] = useState(false);
 
@@ -16,7 +16,7 @@ const useFacebook = function ({
         appId,
         autoLogAppEvents,
         xfbml,
-        version,
+        version
       });
 
       setFacebookSDKReady(true);
@@ -32,12 +32,12 @@ const useFacebook = function ({
       const js = d.createElement(s);
       js.id = id;
       js.src = `https://connect.facebook.net/${lang}/sdk${
-        debug ? "/debug" : ""
+        debug ? '/debug' : ''
       }.js`;
       js.async = 1;
       js.defer = 1;
       fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+    })(document, 'script', 'facebook-jssdk');
   }, []);
 
   return { isFacebookSDKReady };
