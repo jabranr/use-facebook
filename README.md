@@ -30,8 +30,8 @@ export default function MyFacebookLoginPage () {
    */
   const { isFacebookSDKReady } = useFacebook(options);
 
-  
-  /** 
+
+  /**
    * Enable/disable the button based on SDK ready state
    * Show FB login dialog on click once enabled
    */
@@ -49,7 +49,7 @@ export default function MyFacebookLoginPage () {
 ```js
 options = {
   appId: 'abcxyz',
-  version: "v8.0",
+  version: "v16.0",
   autoLogAppEvents: true,
   xfbml: true,
   debug: false,

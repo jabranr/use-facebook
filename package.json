@@ -4,6 +4,10 @@
   "description": "Custom React hook to load Facebook web SDK",
   "main": "index.js",
   "module": "index.js",
+  "scripts": {
+    "setup": "sh setup-test-app.sh",
+    "start": "cd test-app && ./node_modules/.bin/react-scripts start"
+  },
   "keywords": [
     "facebook",
     "sdk",
@@ -15,9 +19,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "react": "^16.14.0"
-  },
-  "peerDependencies": {
-    "react": "^16.14.0"
+    "react": ">16",
+    "react-dom": ">16"
   }
 }
