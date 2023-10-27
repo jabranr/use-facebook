@@ -1,9 +1,10 @@
 {
   "name": "use-facebook",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Custom React hook to load Facebook web SDK",
   "main": "index.js",
   "module": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "setup": "sh setup-test-app.sh",
     "start": "cd test-app && ./node_modules/.bin/react-scripts start"
