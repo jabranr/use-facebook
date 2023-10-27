@@ -1,53 +1,30 @@
 #!/usr/bin/env bash
 
-
-
-mkdir -p test-app/src test-app/public
+npx create-react-app test-app --template=typescript
+npm i -D @types/facebook-js-sdk
 
 npm pack
 mv use-facebook*.tgz test-app/
 
 cd test-app
 
+# remove unused files
+rm src/App.css src/App.test.tsx src/logo.svg
+
+# install packaged version of use-facebook
+npm i ./use-facebook*.tgz
+rm ./use-facebook*.tgz
+
+# setup app.tsx with use-facebook
 echo "
-<!DOCTYPE html>
-<html lang=\"en\">
-  <head>
-    <meta charset=\"utf-8\" />
-    <meta
-      name=\"viewport\"
-      content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"
-    />
-    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />
-  </head>
-  <body>
-    <div id=\"root\"></div>
-  </body>
-</html>
-
-" > public/index.html
-
-
-echo "
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-
-import App from './app';
-
-const root = createRoot(document.querySelector('#root'));
-root.render(<App />);
-
-" > src/index.js
-
-echo "
-import React from 'react';
+import { useState, useEffect } from 'react';
 import useFacebook from 'use-facebook';
 
 export default function App() {
   const { isFacebookSDKReady } = useFacebook({ appId: '123456' });
-  const [isConnected,setConnected] = React.useState(false);
+  const [isConnected,setConnected] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window?.FB?.getLoginStatus(res => setConnected(res.status === 'connected'));
   }, [isFacebookSDKReady])
 
@@ -58,12 +35,8 @@ export default function App() {
   return <button disabled={!isFacebookSDKReady} onClick={handleLogin}>{isConnected ? 'Conncted' : 'Connect with Facebook'}</button>;
 }
 
-" > src/app.js
+" > src/App.tsx
 
-npm init -y
-npm i -D react react-dom react-scripts
-npm i ./use-facebook*.tgz
-rm ./use-facebook*.tgz
 
 echo "**************************************";
 echo " ";
