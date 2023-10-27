@@ -1,4 +1,4 @@
-# use-facebook
+# use-facebook [![Node.js Package](https://github.com/jabranr/use-facebook/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/jabranr/use-facebook/actions/workflows/npm-publish.yml)
 
 Custom React hook for Facebook JavaScript SDK
 
