@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useFacebook = function ({
   appId,
-  version = "v16.0",
+  version = "v18.0",
   autoLogAppEvents = true,
   xfbml = true,
   debug = false,

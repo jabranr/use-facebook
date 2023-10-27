@@ -49,7 +49,7 @@ export default function MyFacebookLoginPage () {
 ```js
 options = {
   appId: 'abcxyz',
-  version: "v16.0",
+  version: "v18.0",
   autoLogAppEvents: true,
   xfbml: true,
   debug: false,

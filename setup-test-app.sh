@@ -45,8 +45,17 @@ import useFacebook from 'use-facebook';
 
 export default function App() {
   const { isFacebookSDKReady } = useFacebook({ appId: '123456' });
+  const [isConnected,setConnected] = React.useState(false);
 
-  return <button disabled={!isFacebookSDKReady} onClick={() => FB.login()}>Connect with Facebook</button>;
+  React.useEffect(() => {
+    window?.FB?.getLoginStatus(res => setConnected(res.status === 'connected'));
+  }, [isFacebookSDKReady])
+
+  function handleLogin() {
+    if (!isConnected) FB.login();
+  }
+
+  return <button disabled={!isFacebookSDKReady} onClick={handleLogin}>{isConnected ? 'Conncted' : 'Connect with Facebook'}</button>;
 }
 
 " > src/app.js
