@@ -19,6 +19,10 @@
     "email": "hello@jabran.me"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jabranr/use-facebook.git"
+  },
   "devDependencies": {
     "react": ">16",
     "react-dom": ">16"

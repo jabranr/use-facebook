@@ -1,18 +1,27 @@
-name: Node.js Package
+name: Publish to npm
 
 on:
   push:
-    tags: ['*']
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write # npm trusted publishing (OIDC)
 
 jobs:
-  publish-npm:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  npm-publish:
+    uses: jabranr/workflows/.github/workflows/reusable-npm-publish.yml@3fa44c32ec361eb2271088a3cc4b1895ff28300e # claude/kind-davinci-dhtl3n (OIDC), re-pin to main once merged
+    with:
+      use-lerna: false
+      run-build: false
+      run-unit-test: false
+      run-lint: false
+      run-format-check: false
+      run-typecheck: false
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
