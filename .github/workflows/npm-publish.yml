@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   npm-publish:
-    uses: jabranr/workflows/.github/workflows/reusable-npm-publish.yml@72be0cd7d8e82e7130c9d4890daf369cffeecdaf # main @ 2026-11-24
+    uses: jabranr/workflows/.github/workflows/reusable-npm-publish.yml@59972e7319b1eb97d518e166633be1acddaf05db # main @ 2026-11-24
     with:
       use-lerna: false
       run-build: false
