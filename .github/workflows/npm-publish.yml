@@ -1,20 +1,27 @@
-name: Node.js Package
+name: Publish to npm
 
 on:
   push:
-    tags: ['*']
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write # npm trusted publishing (OIDC)
 
 jobs:
-  publish-npm:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22.17.0
-          cache: "npm"
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
+  npm-publish:
+    uses: jabranr/workflows/.github/workflows/reusable-npm-publish.yml@59972e7319b1eb97d518e166633be1acddaf05db # main @ 2026-11-24
+    with:
+      use-lerna: false
+      run-build: false
+      run-unit-test: false
+      run-lint: false
+      run-format-check: false
+      run-typecheck: false
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
