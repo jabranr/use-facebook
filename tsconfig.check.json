@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": ["facebook-js-sdk", "node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "*.config.ts", "*.config.mts"],
+  "exclude": []
+}
