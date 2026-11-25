@@ -1,18 +1,45 @@
 {
   "name": "use-facebook",
   "version": "1.2.4",
-  "description": "Custom React hook to load Facebook web SDK",
-  "main": "index.js",
-  "module": "index.js",
-  "types": "./index.d.ts",
+  "description": "React hook to load the Facebook JavaScript SDK",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "setup": "sh setup-test-app.sh",
-    "start": "cd test-app && ./node_modules/.bin/react-scripts start"
+    "build": "tsup",
+    "typecheck": "tsc --noEmit -p tsconfig.check.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "setup": "bash setup-test-app.sh",
+    "start": "cd test-app && ./node_modules/.bin/vite",
+    "prepare": "husky",
+    "postbuild": "node -e \"for (const f of ['dist/index.d.ts','dist/index.d.cts']) { const fs = require('fs'); const ref = '/// <reference types=\\\"facebook-js-sdk\\\" />\\n'; const s = fs.readFileSync(f, 'utf8'); if (!s.startsWith(ref)) fs.writeFileSync(f, ref + s); }\""
   },
   "keywords": [
     "facebook",
     "sdk",
-    "javascript"
+    "react",
+    "hook"
   ],
   "author": {
     "name": "Jabran Rafique",
@@ -23,8 +50,31 @@
     "type": "git",
     "url": "git+https://github.com/jabranr/use-facebook.git"
   },
+  "bugs": {
+    "url": "https://github.com/jabranr/use-facebook/issues"
+  },
+  "homepage": "https://github.com/jabranr/use-facebook#readme",
+  "prettier": "@jabraf/prettier",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@types/facebook-js-sdk": "^3.3.13"
+  },
   "devDependencies": {
-    "react": ">16",
-    "react-dom": ">16"
+    "@jabraf/prettier": "^3.0.1",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.10.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^8.5.1",
+    "typescript": "~5.8.3",
+    "vitest": "^5.1.2"
   }
 }

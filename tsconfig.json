@@ -1,0 +1,41 @@
+{
+  /* From Matt Pocock: https://www.totaltypescript.com */
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    /* Bundled with tsup: */
+    "module": "Preserve",
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+
+    /* If not transpiling with TypeScript: */
+    "noEmit": true,
+
+    /* AND if you're building for a library: */
+    "declaration": true,
+
+    /* AND if you're building for a library in a monorepo: */
+    "declarationMap": true,
+
+    /* Other options */
+    /* if lib has DOM access */
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.spec.tsx"]
+}

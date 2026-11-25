@@ -18,10 +18,6 @@ jobs:
     uses: jabranr/workflows/.github/workflows/reusable-npm-publish.yml@59972e7319b1eb97d518e166633be1acddaf05db # main @ 2026-11-24
     with:
       use-lerna: false
-      run-build: false
-      run-unit-test: false
       run-lint: false
-      run-format-check: false
-      run-typecheck: false
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
