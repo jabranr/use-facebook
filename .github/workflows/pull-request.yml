@@ -1,0 +1,21 @@
+name: Test and pre-release to npm
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  pr-checks:
+    permissions:
+      contents: read
+      id-token: write # npm trusted publishing (OIDC) for [publish] pre-releases
+    uses: jabranr/workflows/.github/workflows/reusable-pr-checks.yml@59972e7319b1eb97d518e166633be1acddaf05db # main @ 2026-11-24
+    with:
+      use-lerna: false
+      run-lint: false
