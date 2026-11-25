@@ -1,6 +1,6 @@
 {
   "name": "use-facebook",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "description": "React hook to load the Facebook JavaScript SDK",
   "type": "module",
   "main": "./dist/index.cjs",
